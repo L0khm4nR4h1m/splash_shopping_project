@@ -91,7 +91,7 @@ app.use(authRoutes);
 app.use(errorController.get404);
 
 mongoose
-  .connect('mongodb+srv://CaptainN3m0:Lu%40834578@cluster1.5nmlooo.mongodb.net/?retryWrites=true&w=majority', {
+  .connect('mongodb+srv://CaptainN3m0:Lu%40834578@cluster1.5nmlooo.mongodb.net/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
