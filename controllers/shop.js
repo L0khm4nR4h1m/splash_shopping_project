@@ -210,7 +210,7 @@ exports.getInvoice = (req, res, next) => {
   });
 };
 
-const stripe = require("stripe")(process.env.STRIPE_KEY);
+const stripe = require("stripe")("sk_test_51MTgVlHjr3QB3tf2IKpbymhbdSy94mILigJE0vlgFi0sc3wsCIMGCSsULGJeVrTzU2oM7fSvHg4HrmOyMgy1ENoZ00NeMLSf4d");
 exports.getCheckout = (req, res, next) => {
   let products;
   let sum;
