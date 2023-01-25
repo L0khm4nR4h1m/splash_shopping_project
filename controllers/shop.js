@@ -128,7 +128,7 @@ exports.postCartDeleteProduct = (req, res, next) => {
 
 exports.postOrder = (req, res, next) => {
   var MongoClient = require('mongodb').MongoClient;
-  var url = "mongodb+srv://CaptainN3m0:Lu%40834578@cluster1.5nmlooo.mongodb.net/?retryWrites=true&w=majority";
+  var url = "mongodb+srv://CaptainN3m0:Lu%40834578@cluster1.5nmlooo.mongodb.net/test?retryWrites=true&w=majority";
   req.user
     .populate("cart.items.productId")
     .execPopulate()
