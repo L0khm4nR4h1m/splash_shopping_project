@@ -11,25 +11,6 @@ const compression = require("compression");
 const morgan = require("morgan");
 require("dotenv").config();
 
-/* const XStorageEngine = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, new Date().getTime().toString() + "-" + file.originalname);
-  },
-}); */
-/* const filefilter = (req, file, cb) => {
-  if (
-    file.mimetype === "image/png" ||
-    file.mimetype === "image/jpeg" ||
-    file.mimetype === "image/jpg"
-  ) {
-    cb(null, true);
-  } else {
-    cb(null, false);
-  }
-}; */
 const mongoDBstore = require("connect-mongodb-session")(session);
 const store = new mongoDBstore({
   uri: 'mongodb+srv://CaptainN3m0:Lu%40834578@cluster1.5nmlooo.mongodb.net/test?retryWrites=true&w=majority',
@@ -55,14 +36,11 @@ app.use(helmet());
 app.use(compression());
 app.use(morgan("combined", { stream: accessLogStreams }));
 app.use(bodyParser.urlencoded({ extended: false }));
-/* app.use(
-  multer({ storage: XStorageEngine, fileFilter: filefilter }).single("image")
-); */
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(
   session({
-    secret: "myNameisDhanush",
+    secret: "SecretKey123",
     resave: false,
     saveUninitialized: false,
     store: store,
